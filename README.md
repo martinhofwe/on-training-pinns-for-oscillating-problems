@@ -19,6 +19,26 @@ To obtain the results for the wave equation mentioned in the appendix, we adapte
 <a id="2">[2]</a> Deguchi, S., Shibata, Y., & Asai, M. (2021). Unknown parameter estimation using physics-informed neural networks with noised observation data. Journal of Japan Society of Civil Engineers, Ser. A2 (Applied Mechanics (AM)), 77(2), I_35-I_45.
 
 # Usage
-The environment.yml provides the conda environment used to run the single_mass/two_mass and 03_wave equation folders. SA-PINN has its own environment.yml file.
+The code to solve the differential equation for the double mass-spring-damper system can be found in `two_mass_pinn_va.py` and `two_mass_pinn_sa.py` for the vanilla and the self-adaptive PINN respectively.
+To change the activation functions set in `main()`:
+```
+# for tanh activation functions in all hidden layers
+act_func_str = "tanh"
+
+# for sine activation functions in all hidden layers
+act_func_str = "sine"
+
+# for sine activation function in the first layer followed by tanh activation functions
+act_func_str = "single-sine"
+```
+Execute for example:
+```
+python two_mass_pinn_va.py
+```
+to run the vanilla version of the PINN.
+
+### Requirements
+The code requires tensorflow, scipy, numpy, matplotlib and pickle. We recommend training the PINNs on a GPU.
+
 
 

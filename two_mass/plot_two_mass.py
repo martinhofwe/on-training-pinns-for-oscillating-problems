@@ -1,15 +1,4 @@
-import sys
-
-import scipy.signal as sig
-import numpy as np
-import tensorflow as tf
-import time
-from datetime import datetime
-import os
 import matplotlib.pyplot as plt
-import pickle
-
-
 
 def plot_solution(t, y_lbl_m2, y_lbl_m1, x_data, y_data_m2, y_data_m1, y_pred, f_path_name, epoch=None):
     fig_res = plt.figure(figsize=(16, 9))
@@ -21,6 +10,8 @@ def plot_solution(t, y_lbl_m2, y_lbl_m1, x_data, y_data_m2, y_data_m1, y_pred, f
     plt.plot(t, y_lbl_m2, label="exact solution pos m2 (wagon)", color="tab:blue")
     plt.scatter(x_data, y_data_m2, label="data points", c="r")
     plt.legend()
+    plt.xlabel("Time")
+    plt.ylabel("Position")
     # plt.show()
     plt.subplot(2, 1, 2)
     if y_pred is not None:
@@ -28,6 +19,8 @@ def plot_solution(t, y_lbl_m2, y_lbl_m1, x_data, y_data_m2, y_data_m1, y_pred, f
     plt.plot(t, y_lbl_m1, label="exact solution m1", color="tab:blue")
     plt.scatter(x_data, y_data_m1, label="data points", c="r")
     plt.legend()
+    plt.xlabel("Time")
+    plt.ylabel("Position")
     if epoch is not None:
         fig_res.savefig(f_path_name + str(epoch) + '.png', format='png', dpi=300)
     else:

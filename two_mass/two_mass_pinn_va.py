@@ -12,7 +12,6 @@ from plot_two_mass import plot_solution, plot_loss
 #np.random.seed(12345)
 #tf.random.set_seed(12345)
 
-
 class Logger(object):
     def __init__(self, save_loss_freq, print_freq=1_000):
         print("TensorFlow version: {}".format(tf.__version__))
@@ -234,7 +233,7 @@ def setup_experiment_folders(hidden_layers, width, af_str, task_id):
 
 
 def main():
-    task_id = 5#int(sys.argv[1])
+    task_id = 5 #int(sys.argv[1])
     print("task_id: ", task_id)
 
     # Parameters that change based on task id ############################################################################
